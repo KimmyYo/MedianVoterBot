@@ -12,11 +12,10 @@ import base64
 from io import BytesIO
 import os
 
-TOKEN = "6819598130:AAFydZp0SdiQ0lNYGnLl5vFidRMx26UeBXg"
-# TOKEN = os.environ['TOKEN']
-NGROK_FORWARD = "https://85e9-203-204-243-81.ngrok-free.app"
+TOKEN = os.environ['TOKEN']
+FORWARD = "median-voter-bot.vercel.app"
 BASE_URL =  f"https://api.telegram.org/bot{TOKEN}"
-WEBHOOK_URL = f"{BASE_URL}/setwebhook?url={NGROK_FORWARD}"
+WEBHOOK_URL = f"{BASE_URL}/setwebhook?url={FORWARD}"
 MESSAGE_URL = f"{BASE_URL}/sendMessage"
 
 CHAT_ID = 5827677676
