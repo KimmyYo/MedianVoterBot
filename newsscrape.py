@@ -90,7 +90,7 @@ class NewsScraper():
                     news_title = a_tag_inner.find('h3').text
                     news_datetime = a_tag_inner.find('p').text
 
-                    news_datetime = self.datetime_parser(news_datetime, stoptime="6小時前")
+                    news_datetime = self.datetime_parser(news_datetime, stoptime=" ")
                     
                     # detect left hours
                     if news_datetime == "STOP":

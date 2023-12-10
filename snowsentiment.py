@@ -16,10 +16,11 @@ class SentimentAnalyzer():
         # not in keywords -> set to 灰 
         self.news_data = news_data
 
-
-
     def sentiment_analysis(self, headline, article):
         head_s = SnowNLP(headline)
+        if isinstance(article, float):
+            article = str(article)
+
         article_s = SnowNLP(article)
         sum_of_article = 0
         for sentence in article_s.sentences:
@@ -80,11 +81,11 @@ class SentimentAnalyzer():
             '白': [0, 0],
             '黃': [0, 0]
         }
-        if isinstance(news, pd.DataFrame):
+        if isinstance(news, pd.Series):
             news_content = news['Content']
         else:
             news_content = news
-
+        print(type(news_content))
         # check keyword exist in article or not s
         for color, keywords in self.keywords.items():
             if any(keyword in news_content for keyword in keywords):
@@ -106,7 +107,7 @@ class SentimentAnalyzer():
         elif color_status == 1:
             news_related_color = [key for key, value in color_status_and_counts.items() if value[0] == 1][0]
         elif color_status == 0:
-            news_related_color = "灰"
+            news_related_color = "其他"
 
         # set the keyword correponsed color 
         return news_related_color
