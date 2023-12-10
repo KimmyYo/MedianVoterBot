@@ -13,7 +13,7 @@ from io import BytesIO
 import os
 
 TOKEN = os.environ['TOKEN']
-FORWARD = "median-voter-bot.vercel.app"
+FORWARD = "medianvoterbot-production.up.railway.app"
 BASE_URL =  f"https://api.telegram.org/bot{TOKEN}"
 WEBHOOK_URL = f"{BASE_URL}/setwebhook?url={FORWARD}"
 MESSAGE_URL = f"{BASE_URL}/sendMessage"
