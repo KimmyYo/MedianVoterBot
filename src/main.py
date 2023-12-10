@@ -14,8 +14,7 @@ from TCSP import read_stopwords_list
 from io import BytesIO
 import os
 
-TOKEN = "6819598130:AAFydZp0SdiQ0lNYGnLl5vFidRMx26UeBXg"
-# TOKEN = os.environ['TOKEN']
+TOKEN = os.environ['TOKEN']
 NGROK_FORWARD = "https://2638-203-204-243-81.ngrok-free.app"
 BASE_URL =  f"https://api.telegram.org/bot{TOKEN}"
 WEBHOOK_URL = f"{BASE_URL}/setwebhook?url={NGROK_FORWARD}"
