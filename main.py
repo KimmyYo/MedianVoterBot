@@ -12,13 +12,13 @@ import base64
 from io import BytesIO
 import os
 
-TOKEN = os.environ['TOKEN']
-# FORWARD = "medianvoterbot-production.up.railway.app"
+TOKEN = os.environ.get('TOKEN')
+FORWARD = "medianvoterbot-production.up.railway.app"
 BASE_URL =  f"https://api.telegram.org/bot{TOKEN}"
 WEBHOOK_URL = f"{BASE_URL}/setwebhook?url={FORWARD}"
 MESSAGE_URL = f"{BASE_URL}/sendMessage"
 
-CHAT_ID = 5827677676
+CHAT_ID = os.environ.get('CHAT_ID')
 
 app = Flask(__name__)
 bot = Bot(token=TOKEN)
